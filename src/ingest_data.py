@@ -1,29 +1,22 @@
-from stormglass_api import get_wave_data
-from database import SessionLocal, SurfData
-from datetime import datetime
+import yfinance as yf
+import os
 
-# Coordenadas das principais praias, incluindo Barra da Tijuca, Rio de Janeiro
-beaches = [
-    {'name': 'Barra da Tijuca', 'lat': -23.0000, 'lng': -43.3657},
-    # Adicione outras praias aqui, se necessário
-]
+# Lista de commodities
+commodities = ['CL=F', 'GC=F', 'SI=F']  # Petróleo bruto, Ouro, Prata
 
-def ingest_data():
-    session = SessionLocal()
-    for beach in beaches:
-        wave_data = get_wave_data(beach['lat'], beach['lng'])
-        
-        surf_data = SurfData(
-            beach=beach['name'],
-            timestamp=datetime.utcnow(),
-            wave_height=wave_data['hours'][0]['waveHeight']['noaa'],
-            temperature=wave_data['hours'][0].get('airTemperature', {}).get('noaa'),
-            wind_speed=wave_data['hours'][0].get('windSpeed', {}).get('noaa')
-        )
-        
-        session.add(surf_data)
-    session.commit()
-    session.close()
+def fetch_commodity_data(symbol, period='1y', interval='1d'):
+    ticker = yf.Ticker(symbol)
+    data = ticker.history(period=period, interval=interval)[['Close']]
+    return data
 
-if __name__ == '__main__':
-    ingest_data()
+def save_data(data, symbol):
+    # Garantir que o diretório exista
+    os.makedirs('data/raw', exist_ok=True)
+    file_path = f"data/raw/{symbol}_data.csv"
+    data.to_csv(file_path)
+    print(f"Dados salvos em {file_path}")
+
+if __name__ == "__main__":
+    for symbol in commodities:
+        data = fetch_commodity_data(symbol)
+        save_data(data, symbol)
