@@ -41,7 +41,7 @@ graph TD;
     B -->|Carrega Dados| C[PostgreSQL]
     C -->|Armazena Dados| D[Data Warehouse]
     D -->|Transforma Dados| E[DBT Models]
-    E -->|Cria Views| F[Dashboard (Streamlit)]
+    E -->|Cria Views| F[Dashboard Streamlit]
 ```
 
 ### Ideia de ETL
@@ -51,5 +51,5 @@ graph TD;
     A[Extract] -->|Extrai Dados da API| B[Transform]
     B -->|Limpa e Transforma Dados| C[Load]
     C -->|Carrega Dados no DW| D[Data Warehouse]
-    D -->|Exibe Dados| E[Dashboard (Streamlit)]
+    D -->|Exibe Dados| E[Dashboard Streamlit]
 ```
