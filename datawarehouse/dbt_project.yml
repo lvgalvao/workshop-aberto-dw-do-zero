@@ -38,11 +38,15 @@ models:
 
       stg_movimentacao_commodities:
         enabled: true
+      +docs:
+        node_color: "#c0c0c0"  # Cor bronze para a camada raw
 
     # Configurations for models in the datamart folder
     datamart:
       +schema: datamart
       +materialized: view
+      +docs:
+        node_color: "#e6b530"  # Cor prata para a camada staging
 
       dm_commodities:
         enabled: true
