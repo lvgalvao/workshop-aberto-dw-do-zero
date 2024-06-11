@@ -57,7 +57,7 @@ graph TD;
 ### Ideia de ETL
 
 ```mermaid
-graph TD;
+graph LR;
     A[Extract] -->|Extrai Dados da API| B[Load]
     B -->|Carrega Dados no DW| C[Transform]
     C -->|Limpa e Transforma Dados| D[Data Warehouse]
