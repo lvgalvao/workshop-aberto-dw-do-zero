@@ -10,7 +10,7 @@ load_dotenv()
 
 # Obter as variáveis do arquivo .env
 DB_HOST = os.getenv('DB_HOST_PROD')
-DB_PORT = int(os.getenv('DB_PORT_PROD'))
+DB_PORT = os.getenv('DB_PORT_PROD')
 DB_NAME = os.getenv('DB_NAME_PROD')
 DB_USER = os.getenv('DB_USER_PROD')
 DB_PASS = os.getenv('DB_PASS_PROD')
