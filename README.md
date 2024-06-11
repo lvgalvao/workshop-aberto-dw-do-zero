@@ -1,6 +1,13 @@
 # Projeto de Data Warehouse de Commodities
 
+Quanto sua empresa vendeu ontem?
+Se você demorar mais de 3 segundos para responder esse workshop de hoje é para você!
+
 Este projeto tem como objetivo criar um Data Warehouse (DW) para armazenar e analisar dados de commodities, utilizando uma arquitetura moderna de ETL (Extract, Transform, Load). O projeto inclui:
+
+[Documentação do DBT](https://lvgalvao.github.io/workshop-aberto-dw-do-zero/#!/overview)
+
+[Dashboard]()
 
 1. **Parte de Extract_Load**: Responsável por extrair dados de uma API e carregar diretamente no banco de dados PostgreSQL.
 2. **Parte de Seed**: Utiliza seeds do DBT para carregar dados de movimentações de commodities a partir de arquivos CSV.
