@@ -41,7 +41,7 @@ jobs:
 
     - name: Install dependencies and generate docs
       run: |
-        cd datawahouse
+        cd datawarehouse
         dbt docs generate
 
     - name: Deploy to GitHub Pages
