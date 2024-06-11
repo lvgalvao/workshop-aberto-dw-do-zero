@@ -7,7 +7,7 @@ Este projeto tem como objetivo criar um Data Warehouse (DW) para armazenar e ana
 
 [Documentação do DBT](https://lvgalvao.github.io/workshop-aberto-dw-do-zero/#!/overview)
 
-[Dashboard]()
+[Dashboard](https://lvgalvao-workshop-aberto-dw-do-zero-appapp-vp0gw4.streamlit.app/)
 
 1. **Parte de Extract_Load**: Responsável por extrair dados de uma API e carregar diretamente no banco de dados PostgreSQL.
 2. **Parte de Seed**: Utiliza seeds do DBT para carregar dados de movimentações de commodities a partir de arquivos CSV.
