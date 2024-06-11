@@ -1,9 +1,3 @@
-Parece que há problemas de formatação nos gráficos Mermaid. Vamos garantir que a sintaxe esteja correta e usar a formatação adequada para gráficos Mermaid no Markdown.
-
-Aqui está uma versão atualizada do README com os gráficos corrigidos:
-
-### README do Projeto
-
 # Projeto de Data Warehouse de Commodities
 
 Este projeto tem como objetivo criar um Data Warehouse (DW) para armazenar e analisar dados de commodities, utilizando uma arquitetura moderna de ETL (Extract, Transform, Load). O projeto inclui:
