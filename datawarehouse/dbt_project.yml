@@ -16,20 +16,33 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+docs-paths: ["docs"]
 
-clean-targets:         # directories to be removed by `dbt clean`
-  - "target"
-  - "dbt_packages"
+# Target-path: directory which will store compiled SQL files
+target-path: "target"
 
+# Clean-targets: directories to be removed by `dbt clean`
+clean-targets: ["target", "dbt_modules"]
 
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
+# The name of the schema used to store your models
+# For postgres, use the schema specified in profiles.yml
 models:
   datawarehouse:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    # Configurations for models in the staging folder
+    staging:
+      +schema: staging
       +materialized: view
+
+      stg_commodities:
+        enabled: true
+
+      stg_movimentacao_commodities:
+        enabled: true
+
+    # Configurations for models in the datamart folder
+    datamart:
+      +schema: datamart
+      +materialized: view
+
+      dm_commodities:
+        enabled: true
