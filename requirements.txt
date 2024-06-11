@@ -1,5 +1,5 @@
 pandas
 requests
 openpyxl
-sqlite3
 matplotlib
+yfinance
