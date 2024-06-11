@@ -1,0 +1,16 @@
+date,symbol,action,quantity
+2024-06-04,CL=F,sell,40
+2024-06-05,CL=F,buy,35
+2024-06-06,CL=F,sell,30
+2024-06-07,CL=F,buy,55
+2024-06-10,CL=F,sell,45
+2024-06-04,GC=F,buy,10
+2024-06-05,GC=F,sell,5
+2024-06-06,GC=F,buy,8
+2024-06-07,GC=F,sell,12
+2024-06-10,GC=F,buy,15
+2024-06-04,SI=F,buy,18
+2024-06-05,SI=F,sell,20
+2024-06-06,SI=F,buy,30
+2024-06-07,SI=F,sell,25
+2024-06-10,SI=F,buy,22

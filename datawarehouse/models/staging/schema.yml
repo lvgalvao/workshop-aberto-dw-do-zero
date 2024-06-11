@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_commodities
+    description: "Tabela de staging para dados de commodities"
+    columns:
+      - name: data
+        description: "Data da observação no formato AAAA-MM-DD"
+      - name: valor_fechamento
+        description: "Preço de fechamento da commodity com precisão decimal 4.2"
+      - name: simbolo
+        description: "Símbolo da commodity"
+  - name: stg_movimentacao_commodities
+    description: "Tabela de staging para dados de movimentação de commodities"
+    columns:
+      - name: data
+        description: "Data da transação no formato AAAA-MM-DD"
+      - name: simbolo
+        description: "Símbolo da commodity"
+      - name: acao
+        description: "Tipo de transação (buy/sell)"
+      - name: quantidade
+        description: "Quantidade transacionada"
