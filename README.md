@@ -37,19 +37,29 @@ O dashboard é implementado em Streamlit e permite visualizar os dados das commo
 
 ```mermaid
 graph TD;
-    A[API de Commodities] -->|Extrai Dados| B[Extract_Load]
-    B -->|Carrega Dados| C[PostgreSQL]
+    subgraph Extract_Load
+        A1[buscar_dados_commodities] --> B1[buscar_todos_dados_commodities]
+        B1 --> C1[carregar_dados_no_postgres]
+    end
+
+    subgraph Transform
+        D1[stg_commodities.sql] --> E1[stg_movimentacao_commodities.sql]
+        E1 --> F1[dm_commodities.sql]
+    end
+
+    A[API de Commodities] -->|Extrai Dados| Extract_Load
+    Extract_Load -->|Carrega Dados| C[PostgreSQL]
     C -->|Armazena Dados| D[Data Warehouse]
-    D -->|Transforma Dados| E[DBT Models]
-    E -->|Cria Views| F[Dashboard Streamlit]
+    Data_Warehouse -->|Transforma Dados| Transform
+    Transform -->|Cria Views| F[Dashboard Streamlit]
 ```
 
 ### Ideia de ETL
 
 ```mermaid
 graph TD;
-    A[Extract] -->|Extrai Dados da API| B[Transform]
-    B -->|Limpa e Transforma Dados| C[Load]
-    C -->|Carrega Dados no DW| D[Data Warehouse]
+    A[Extract] -->|Extrai Dados da API| B[Load]
+    B -->|Carrega Dados no DW| C[Transform]
+    C -->|Limpa e Transforma Dados| D[Data Warehouse]
     D -->|Exibe Dados| E[Dashboard Streamlit]
 ```

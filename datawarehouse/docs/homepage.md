@@ -48,8 +48,6 @@ Os snapshots são utilizados para manter um histórico de como os dados mudam ao
 │       └── dm_commodities.sql
 ├── seeds
 │   └── movimentacao_commodities.csv
-├── snapshots
-│   └── ...
 ├── dbt_project.yml
 └── README.md
 ```
